@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Apple",
+        "wholePrice": 19.99,
+        "slicePrice": 4.99,
+        "sliceCalories": 67,
+        "imagerl": "images/apple.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Cherry",
+        "wholePrice": 19.99,
+        "slicePrice": 4.99,
+        "sliceCalories": 71,
+        "imagerl": "images/cherry.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Peach",
+        "wholePrice": 21.99,
+        "slicePrice": 5.49,
+        "sliceCalories": 67,
+        "imagerl": "images/peach.jpg"
+    },
+    {
+        "id": 4,
+        "name": "StrawBerry",
+        "wholePrice": 20.99,
+        "slicePrice": 5.99,
+        "sliceCalories": 69,
+        "imagerl": "images/strawberry.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Bosenberry",
+        "wholePrice": 22.99,
+        "slicePrice": 5.99,
+        "sliceCalories": 73,
+        "imagerl": "images/bosenberry.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Peacan",
+        "wholePrice": 22.99,
+        "slicePrice": 2.99,
+        "sliceCalories": 67,
+        "imagerl": "images/pecan.jpg"
+    }
+]
