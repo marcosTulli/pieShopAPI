@@ -5,7 +5,7 @@
         "wholePrice": 19.99,
         "slicePrice": 4.99,
         "sliceCalories": 67,
-        "imagerl": "images/apple.jpg"
+        "imageUrl": "images/apple.jpg"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "wholePrice": 19.99,
         "slicePrice": 4.99,
         "sliceCalories": 71,
-        "imagerl": "images/cherry.jpg"
+        "imageUrl": "images/cherry.jpg"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "wholePrice": 21.99,
         "slicePrice": 5.49,
         "sliceCalories": 67,
-        "imagerl": "images/peach.jpg"
+        "imageUrl": "images/peach.jpg"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "wholePrice": 20.99,
         "slicePrice": 5.99,
         "sliceCalories": 69,
-        "imagerl": "images/strawberry.jpg"
+        "imageUrl": "images/strawberry.jpg"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "wholePrice": 22.99,
         "slicePrice": 5.99,
         "sliceCalories": 73,
-        "imagerl": "images/bosenberry.jpg"
+        "imageUrl": "images/bosenberry.jpg"
     },
     {
         "id": 6,
@@ -45,6 +45,22 @@
         "wholePrice": 22.99,
         "slicePrice": 2.99,
         "sliceCalories": 67,
-        "imagerl": "images/pecan.jpg"
+        "imageUrl": "images/pecan.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Pumpkin",
+        "wholeprice": 20.99,
+        "sliceprice": 5.99,
+        "slicecalories": 70,
+        "imageUrl": "images/pumpkin.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Chabon",
+        "wholeprice": 22.99,
+        "sliceprice": 5.99,
+        "slicecalories": 70,
+        "imageUrl": "images/chabon.jpg"
     }
 ]
