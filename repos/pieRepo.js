@@ -78,7 +78,6 @@ let pieRepo = {
       } else {
         let pies = JSON.parse(data);
         let pie = pies.find(p => String(p.id) === id);
-
         if (pie) {
           Object.assign(pie, newData);
           fs.writeFile(FILE_NAME, JSON.stringify(pies), err => {
