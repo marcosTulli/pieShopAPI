@@ -2,6 +2,7 @@
 let express = require('express');
 let app = express();
 let pieRepo = require('./repos/pieRepo');
+let errorHelper = require('./helpers/errorHelpers');
 
 // Use the express Router object
 let router = express.Router();
@@ -12,7 +13,7 @@ app.use(express.json());
 // Create GET to return a list of all pies
 router.get('/', function (req, res, next) {
   pieRepo.get(
-    data => {
+    (data) => {
       res.status(200).json({
         status: 200,
         statusText: 'OK',
@@ -20,7 +21,7 @@ router.get('/', function (req, res, next) {
         data: data,
       });
     },
-    err => {
+    (err) => {
       next(err);
     }
   );
@@ -32,7 +33,7 @@ router.get('/', function (req, res, next) {
     };
     pieRepo.search(
       searchObject,
-      data => {
+      (data) => {
         res.status(200).json({
           status: 200,
           statusText: 'OK',
@@ -40,7 +41,7 @@ router.get('/', function (req, res, next) {
           data: data,
         });
       },
-      err => {
+      (err) => {
         next(err);
       }
     );
@@ -49,7 +50,7 @@ router.get('/', function (req, res, next) {
   router.get('/:id', (req, res, next) => {
     pieRepo.getById(
       req.params.id,
-      data => {
+      (data) => {
         if (data) {
           res.status(200).json({
             status: 200,
@@ -69,7 +70,7 @@ router.get('/', function (req, res, next) {
           });
         }
       },
-      err => {
+      (err) => {
         next(err);
       }
     );
@@ -77,10 +78,9 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(req.body);
   pieRepo.insert(
     req.body,
-    data => {
+    (data) => {
       res.status(201).json({
         status: 201,
         statusText: 'Created',
@@ -88,18 +88,19 @@ router.post('/', (req, res, next) => {
         data: data,
       });
     },
-    err => {
+    (err) => {
       next(err);
     }
   );
 });
 
+// Update
 router.put('/:id', (req, res, next) => {
   pieRepo.getById(
     req.params.id,
-    data => {
+    (data) => {
       if (data) {
-        pieRepo.update(req.body, req.params.id, data => {
+        pieRepo.update(req.body, req.params.id, (data) => {
           res.status(200).json({
             status: 200,
             statusText: 'OK',
@@ -119,14 +120,68 @@ router.put('/:id', (req, res, next) => {
         });
       }
     },
-    err => {
+    (err) => {
       next(err);
     }
   );
 });
 
+router.delete('/:id', (req, res, next) => {
+  pieRepo.getById(
+    req.params.id,
+    (data) => {
+      if (data) {
+        pieRepo.delete(req.params.id, (data) => {
+          res.status(200).json({
+            status: 200,
+            statusText: 'OK',
+            message: `The pie ${req.params.id} is deleted`,
+            data: `The pie ${req.params.id} is deleted`,
+          });
+        });
+      } else {
+        res.status(404).json({
+          status: 404,
+          statusText: 'Not Found',
+          message: `The pie with id: ${req.params.id} could not be deleted`,
+          error: {
+            code: 'NOT_FOUND',
+            message: `The pie with id: ${req.params.id} could not be deleted`,
+          },
+        });
+      }
+    },
+    (err) => next(err)
+  );
+});
+
+router.patch('/:id', (req, res, next) => {
+  pieRepo.getById(req.params.id, (data) => {
+    if (data) {
+      pieRepo.update(req.body, req.params.id, (data) => {
+        res.status(200).json({
+          status: 200,
+          statusText: 'OK',
+          message: `The pie ${req.params.id} is patched`,
+          data: data,
+        });
+      });
+    }
+  });
+});
+
 // Configure router so all routes are prefixed with /api/v1
 app.use('/api/', router);
+
+// Configure exception logger to console
+app.use(errorHelper.logErrorsToConsole);
+
+// Configure client error handler
+app.use(errorHelper.clientErrorHandler);
+
+// Configure excepition middleware last
+app.use(errorHelper.errorHandler);
+
 // Create server  to install on port 5000
 let server = app.listen(3000, () => {
   console.log('Node server is running on http://localhost:3000');

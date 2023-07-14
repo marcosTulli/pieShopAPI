@@ -2,7 +2,7 @@ const { rejects } = require('assert');
 let fs = require('fs');
 const { resolve } = require('path');
 
-const FILE_NAME = './assets/pies.json';
+const FILE_NAME = './assets/pier.json';
 
 let pieRepo = {
   // Get all
@@ -22,7 +22,7 @@ let pieRepo = {
       if (err) {
         rej(err);
       } else {
-        let pie = JSON.parse(data).find(p => String(p.id) === id);
+        let pie = JSON.parse(data).find((p) => String(p.id) === id);
         res(pie);
       }
     });
@@ -37,7 +37,7 @@ let pieRepo = {
         let pies = JSON.parse(data);
         if (searchObject) {
           pies = pies.filter(
-            p =>
+            (p) =>
               (searchObject.id ? p.id == searchObject.id : true) &&
               (searchObject.name
                 ? p.name
@@ -59,7 +59,7 @@ let pieRepo = {
       } else {
         let pies = JSON.parse(data);
         pies.push(newData);
-        fs.writeFile(FILE_NAME, JSON.stringify(pies), err => {
+        fs.writeFile(FILE_NAME, JSON.stringify(pies), (err) => {
           if (err) {
             rej(err);
           } else {
@@ -77,14 +77,37 @@ let pieRepo = {
         rej(err);
       } else {
         let pies = JSON.parse(data);
-        let pie = pies.find(p => String(p.id) === id);
+        let pie = pies.find((p) => String(p.id) === id);
         if (pie) {
           Object.assign(pie, newData);
-          fs.writeFile(FILE_NAME, JSON.stringify(pies), err => {
+          fs.writeFile(FILE_NAME, JSON.stringify(pies), (err) => {
             if (err) {
               rej(err);
             } else {
               res(newData);
+            }
+          });
+        }
+      }
+    });
+  },
+
+  // Delete
+  delete: (id, res, rej) => {
+    fs.readFile(FILE_NAME, (err, data) => {
+      if (err) {
+        rej(err);
+      } else {
+        let pies = JSON.parse(data);
+        let index = pies.findIndex((p) => String(p.id) === id);
+
+        if (index != -1) {
+          pies.splice(index, 1);
+          fs.writeFile(FILE_NAME, JSON.stringify(pies), (err) => {
+            if (err) {
+              rej(err);
+            } else {
+              res(index);
             }
           });
         }

@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "name": "Apple",
-        "wholePrice": 19.99,
+        "name": "Tuki",
+        "wholePrice": 22.22,
         "slicePrice": 4.99,
         "sliceCalories": 67,
         "imageUrl": "images/apple.jpg"
@@ -30,38 +30,5 @@
         "slicePrice": 5.99,
         "sliceCalories": 69,
         "imageUrl": "images/strawberry.jpg"
-    },
-    {
-        "id": 5,
-        "name": "Bosenberry",
-        "wholePrice": 22.99,
-        "slicePrice": 5.99,
-        "sliceCalories": 73,
-        "imageUrl": "images/bosenberry.jpg"
-    },
-    {
-        "id": 6,
-        "name": "Peacan",
-        "wholePrice": 22.99,
-        "slicePrice": 2.99,
-        "sliceCalories": 67,
-        "imageUrl": "images/pecan.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Pumpkin",
-        "wholeprice": 20.99,
-        "sliceprice": 5.99,
-        "slicecalories": 70,
-        "imageUrl": "images/pumpkin.jpg"
-    },
-    {
-        "id": 9,
-        "name": "Chabon",
-        "wholeprice": 22.99,
-        "sliceprice": 5.99,
-        "slicecalories": 70,
-        "imageUrl": "images/chabon.jpg"
-    },
-    {}
+    }
 ]
