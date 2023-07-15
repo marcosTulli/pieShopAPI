@@ -2,7 +2,7 @@ const { rejects } = require('assert');
 let fs = require('fs');
 const { resolve } = require('path');
 
-const FILE_NAME = './assets/pier.json';
+const FILE_NAME = './assets/pies.json';
 
 let pieRepo = {
   // Get all

@@ -1,4 +1,4 @@
 ******************************************************************************** "
-"Date/Time 7/14/2023 
-Exception Info: {"status":500,"statusText":"Internal Server Error","message":"ENOENT: no such file or directory, open 'C:\\Users\\marco\\Documents\\Projects\\node\\pieShopAPI\\assets\\pier.json'","error":{"errno":-4058,"call":"open","code":"INTERNAL_SERVER_ERROR","message":"ENOENT: no such file or directory, open 'C:\\Users\\marco\\Documents\\Projects\\node\\pieShopAPI\\assets\\pier.json'"},"requestInfo":{"path":"/api"}} 
+"Date/Time 7/15/2023 
+Exception Info: {"status":500,"statusText":"Internal Server Error","message":"ENOENT: no such file or directory, open 'C:\\Users\\marco\\Documents\\Projects\\node\\PieShop\\pieShopAPI\\assets\\pier.json'","error":{"errno":-4058,"call":"open","code":"INTERNAL_SERVER_ERROR","message":"ENOENT: no such file or directory, open 'C:\\Users\\marco\\Documents\\Projects\\node\\PieShop\\pieShopAPI\\assets\\pier.json'"},"requestInfo":{"path":"/api/"}} 
 ******************************************************************************** 
